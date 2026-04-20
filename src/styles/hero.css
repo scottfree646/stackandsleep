@@ -1,0 +1,114 @@
+.hero {
+  position: relative;
+  padding: 80px 24px 72px;
+  background-color: var(--bg-surface);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 520px 520px at top right, rgba(232, 98, 42, 0.06), transparent),
+    radial-gradient(ellipse 65% 75% at 38% 65%, rgba(255,255,255,0.96) 15%, transparent 68%),
+    radial-gradient(circle, var(--dot-grid-color) 1px, transparent 1px);
+  background-size: auto, auto, 28px 28px;
+  pointer-events: none;
+  opacity: 0.45;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 520px 520px at top right, rgba(232, 98, 42, 0.06), transparent),
+    radial-gradient(ellipse 65% 75% at 38% 65%, rgba(255,255,255,0.96) 15%, transparent 68%);
+  background-size: auto, auto;
+  opacity: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  border: 1px solid rgba(232, 98, 42, 0.3);
+  background: var(--accent-light);
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1.8px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 640px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 460px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+.hero-stat {
+  padding-right: 32px;
+  margin-right: 32px;
+  border-right: 1px solid var(--border);
+}
+.hero-stat:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+.hero-stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.hero-stat-label {
+  font-size: 11px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+
+@media (max-width: 700px) {
+  .hero h1 { font-size: 34px; letter-spacing: -1px; }
+  .hero-stat { border-right: none; padding-right: 0; margin-right: 20px; }
+}

@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  category: string;
+  date: Date;
+  slug: string;
+  gradient?: 'orange' | 'green' | 'blue' | 'amber';
+}
+
+const { title, category, date, slug, gradient = 'orange' } = Astro.props;
+const thumbClass = `article-thumb article-thumb-${gradient}`;
+const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+<a href={`/articles/${slug}/`} class="article-card">
+  <div class={thumbClass}></div>
+  <div class="article-body">
+    <div class="article-cat">{category}</div>
+    <h3>{title}</h3>
+    <div class="article-meta">{formattedDate}</div>
+  </div>
+</a>

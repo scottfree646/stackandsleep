@@ -1,0 +1,334 @@
+---
+import { getCollection } from 'astro:content';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Ticker from '../components/Ticker.astro';
+import EmailCapture from '../components/EmailCapture.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import ComparisonCard from '../components/ComparisonCard.astro';
+import GuideRow from '../components/GuideRow.astro';
+
+const allArticles = await getCollection('articles');
+const featured = allArticles
+  .filter(a => a.data.featured)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const gradients: Array<'orange' | 'green' | 'blue' | 'amber'> = ['orange', 'green', 'blue'];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://stackandsleep.com/#website',
+      url: 'https://stackandsleep.com',
+      name: 'Stack and Sleep',
+      description: 'Independent reviews and buying guides for sleep optimisation and biohacking.',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://stackandsleep.com/#organization',
+      name: 'Stack and Sleep',
+      url: 'https://stackandsleep.com',
+    },
+  ],
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stack and Sleep — Independent Sleep & Biohacking Reviews</title>
+  <meta name="description" content="Independent reviews and buying guides for sleep optimisation technology and biohacking tools. We test the gear so you know what's worth buying." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://stackandsleep.com/" />
+  <meta property="og:title"       content="Stack and Sleep — Independent Sleep & Biohacking Reviews" />
+  <meta property="og:description" content="Independent reviews and buying guides for sleep trackers, supplements, red light therapy, cold plunge and biohacking tools." />
+  <meta property="og:url"         content="https://stackandsleep.com/" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Stack and Sleep" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="stylesheet" href="/src/styles/nav.css" />
+  <link rel="stylesheet" href="/src/styles/hero.css" />
+  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <link rel="stylesheet" href="/src/styles/cards.css" />
+  <link rel="stylesheet" href="/src/styles/email.css" />
+</head>
+<body>
+
+<!-- 5.1 FTC Disclosure -->
+<div class="disclosure-bar">
+  Independent reviews — affiliate links at no extra cost to you.&nbsp;
+  <a href="/affiliate-disclosure/">Full disclosure</a>&nbsp;·&nbsp;
+  <a href="/how-we-review/">How we review</a>
+</div>
+
+<!-- 5.2 Navigation -->
+<Nav />
+
+<main>
+
+  <!-- 5.3 Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Independent sleep &amp; biohacking reviews</div>
+      <h1>Stop guessing.<br />Start <em>optimising.</em></h1>
+      <p class="hero-sub">We test sleep trackers, supplements, red light panels and recovery tools so you know exactly what's worth buying — and what isn't.</p>
+      <div class="hero-btns">
+        <a href="/articles/best-sleep-trackers-2026/" class="btn-primary">Browse sleep trackers →</a>
+        <a href="/articles/best-magnesium-for-sleep/" class="btn-secondary">See all buying guides</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">48+</div>
+          <div class="hero-stat-label">Products reviewed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">6</div>
+          <div class="hero-stat-label">Trackers tested</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">Zero</div>
+          <div class="hero-stat-label">Paid placements</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">2026</div>
+          <div class="hero-stat-label">Last updated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.4 Product Ticker -->
+  <Ticker />
+
+  <!-- 5.5 How It Works -->
+  <section class="section bg-surface">
+    <div class="section-inner">
+      <div class="how-grid">
+        <div class="how-left">
+          <div class="section-tag">Start here</div>
+          <h2 class="section-heading">How this site works</h2>
+          <p>Every review on this site follows the same process: hands-on testing, real data, honest conclusions. No brand deals. No sponsored rankings.</p>
+          <a href="/how-we-review/">See our review process →</a>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">Step 01</div>
+            <h3>Know your goal</h3>
+            <p>Better sleep score? Lower HRV stress? Recovery from training? Your goal determines which tools actually matter.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 02</div>
+            <h3>Read the buying guide</h3>
+            <p>Each category guide explains what specs actually move the needle — and which marketing claims to ignore.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 03</div>
+            <h3>Compare top picks</h3>
+            <p>Head-to-head comparisons show exactly how the leading products differ for your specific use case.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 04</div>
+            <h3>Buy with confidence</h3>
+            <p>Every guide includes real pros and cons, current prices, and links to the best deals available now.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 5.6 Explore by Category -->
+  <section class="section bg-alt">
+    <div class="section-inner">
+      <div class="section-tag">Explore by category</div>
+      <h2 class="section-heading">Find your area of focus</h2>
+      <p class="section-desc">Four sub-niches, one audience. All of it built around the same question: how do you actually improve your sleep and recovery?</p>
+      <div class="cat-grid">
+        <CategoryCard
+          title="Sleep Trackers"
+          description="Oura Ring, Whoop, Garmin Venu — which tracker gives you data you can actually act on."
+          pipColor="var(--accent)"
+          links={[
+            { label: 'Best sleep trackers 2026', slug: 'best-sleep-trackers-2026' },
+            { label: 'Oura Ring Gen 4 review', slug: 'oura-ring-gen4-review' },
+            { label: 'Best white noise machines', slug: 'best-white-noise-machines-2026' },
+          ]}
+          allHref="/articles/best-sleep-trackers-2026/"
+          allLabel="All sleep tracker guides"
+        />
+        <CategoryCard
+          title="Sleep Supplements"
+          description="Magnesium glycinate, ashwagandha, L-theanine — what the research actually says about each."
+          pipColor="#2d9e6e"
+          links={[
+            { label: 'Best magnesium for sleep', slug: 'best-magnesium-for-sleep' },
+            { label: 'What is sleep optimisation?', slug: 'what-is-sleep-optimisation' },
+            { label: 'Best sleep trackers 2026', slug: 'best-sleep-trackers-2026' },
+          ]}
+          allHref="/articles/best-magnesium-for-sleep/"
+          allLabel="All supplement guides"
+        />
+        <CategoryCard
+          title="Cold Plunge & Recovery"
+          description="Plunge, Ice Barrel, DIY setups — cold exposure protocols that actually improve HRV and recovery."
+          pipColor="#378add"
+          links={[
+            { label: 'What is sleep optimisation?', slug: 'what-is-sleep-optimisation' },
+            { label: 'Best sleep trackers 2026', slug: 'best-sleep-trackers-2026' },
+            { label: 'Best magnesium for sleep', slug: 'best-magnesium-for-sleep' },
+          ]}
+          allHref="/articles/what-is-sleep-optimisation/"
+          allLabel="All recovery guides"
+        />
+        <CategoryCard
+          title="Biohacking Starter Kit"
+          description="Red light therapy, infrared saunas, CGM tracking — the tools worth investing in first."
+          pipColor="#ba7517"
+          links={[
+            { label: 'What is sleep optimisation?', slug: 'what-is-sleep-optimisation' },
+            { label: 'Best magnesium for sleep', slug: 'best-magnesium-for-sleep' },
+            { label: 'Oura Ring Gen 4 review', slug: 'oura-ring-gen4-review' },
+          ]}
+          allHref="/articles/what-is-sleep-optimisation/"
+          allLabel="All biohacking guides"
+        />
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 5.7 Popular Comparisons -->
+  <section class="section bg-surface">
+    <div class="section-inner">
+      <div class="section-tag">Head-to-head</div>
+      <h2 class="section-heading">Popular comparisons</h2>
+      <p class="section-desc">Can't decide between two products? These side-by-side guides make the choice straightforward.</p>
+      <div class="comp-grid">
+        <ComparisonCard
+          category="Sleep Trackers"
+          title="Oura Ring vs Whoop 4.0"
+          description="Two of the most data-rich wearables on the market. One is a ring, one is a strap — but which gives you better sleep data?"
+          verdict="<strong>For most people:</strong> Oura Ring for passive sleep tracking. Whoop if you're training hard and want daily strain scores."
+          slug="best-sleep-trackers-2026"
+        />
+        <ComparisonCard
+          category="Red Light Therapy"
+          title="Joovv vs Mito Red Light"
+          description="Full-body panels at very different price points. Does the Joovv premium justify a $1,000+ gap over the Mito Pro 300?"
+          verdict="<strong>For most people:</strong> Mito Pro 300 delivers the same therapeutic wavelengths for $300–500 less."
+          slug="what-is-sleep-optimisation"
+        />
+        <ComparisonCard
+          category="Cold Plunge"
+          title="Plunge vs Ice Barrel"
+          description="Two dedicated cold plunge tubs. One is chiller-cooled, one relies on ice. Which setup actually gets used consistently?"
+          verdict="<strong>For most people:</strong> Plunge for daily use convenience. Ice Barrel if upfront cost is the priority."
+          slug="what-is-sleep-optimisation"
+        />
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 5.8 Popular Buying Guides -->
+  <section class="section bg-alt">
+    <div class="section-inner">
+      <div class="section-tag">Most popular</div>
+      <h2 class="section-heading">Popular buying guides</h2>
+      <p class="section-desc">Regularly updated guides based on current products, real testing, and the latest firmware changes.</p>
+      <div class="guides-grid">
+        <GuideRow
+          num="01"
+          category="Sleep Trackers"
+          title="Best sleep trackers 2026 — tested and ranked"
+          description="6 trackers tested over 90 nights. Two are actually worth buying."
+          slug="best-sleep-trackers-2026"
+        />
+        <GuideRow
+          num="02"
+          category="Sleep Supplements"
+          title="Best magnesium for sleep — which form works"
+          description="Glycinate, threonate, oxide — what the research shows and which products we recommend."
+          slug="best-magnesium-for-sleep"
+        />
+        <GuideRow
+          num="03"
+          category="Sleep Trackers"
+          title="Oura Ring Gen 4 review — 6 months of data"
+          description="Full review after six months of daily use, including accuracy data and when to skip it."
+          slug="oura-ring-gen4-review"
+        />
+        <GuideRow
+          num="04"
+          category="Sleep Environment"
+          title="Best white noise machines 2026 — ranked"
+          description="Yogasleep, LectroFan, Hatch Restore — what actually blocks sound and helps you stay asleep."
+          slug="best-white-noise-machines-2026"
+        />
+        <GuideRow
+          num="05"
+          category="Biohacking"
+          title="What is sleep optimisation? A beginner's guide"
+          description="The protocols, tools, and habits that measurably improve sleep quality — explained without the hype."
+          slug="what-is-sleep-optimisation"
+        />
+        <GuideRow
+          num="06"
+          category="Sleep Trackers"
+          title="Best sleep trackers under $200 — budget picks"
+          description="You don't need an Oura Ring to get actionable sleep data. These trackers deliver at lower cost."
+          slug="best-sleep-trackers-2026"
+        />
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 5.9 Latest Articles -->
+  {featured.length > 0 && (
+    <section class="section bg-surface">
+      <div class="section-inner">
+        <div class="section-tag">Latest guides</div>
+        <h2 class="section-heading">Recently updated</h2>
+        <p class="section-desc">Our newest sleep and biohacking reviews, updated as products and research evolve.</p>
+        <div class="articles-grid">
+          {featured.map((article, i) => (
+            <ArticleCard
+              title={article.data.title}
+              category={article.data.category}
+              date={article.data.date}
+              slug={article.slug}
+              gradient={gradients[i % gradients.length]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <hr class="divider" />
+
+  <!-- 5.10 Email Capture -->
+  <EmailCapture />
+
+</main>
+
+<!-- 5.11 Footer -->
+<Footer />
+
+</body>
+</html>

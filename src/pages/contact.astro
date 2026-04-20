@@ -1,0 +1,87 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Stack and Sleep</title>
+  <meta name="description" content="Get in touch with Stack and Sleep — questions, corrections, or partnership enquiries." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://stackandsleep.com/contact/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="stylesheet" href="/src/styles/nav.css" />
+  <link rel="stylesheet" href="/src/styles/cards.css" />
+  <link rel="stylesheet" href="/src/styles/article.css" />
+  <style>
+    .contact-form { display: flex; flex-direction: column; gap: 16px; max-width: 520px; margin-top: 28px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .form-group input,
+    .form-group textarea {
+      font-size: 14px; padding: 11px 14px; border-radius: 7px;
+      border: 1.5px solid var(--border); background: var(--bg-alt);
+      color: var(--text-primary); outline: none; transition: border-color 0.2s;
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .contact-note { font-size: 12px; color: var(--text-faint); margin-top: 8px; }
+  </style>
+</head>
+<body class="article-page">
+
+  <div class="disclosure-bar">
+    Independent reviews — affiliate links at no extra cost to you.&nbsp;
+    <a href="/affiliate-disclosure/">Full disclosure</a>&nbsp;·&nbsp;
+    <a href="/how-we-review/">How we review</a>
+  </div>
+
+  <Nav />
+
+  <main>
+    <header class="article-header">
+      <div class="article-header-cat">Contact</div>
+      <h1>Get in touch</h1>
+    </header>
+
+    <div class="article-body">
+      <p>Use this form for questions, corrections, or partnership enquiries. We read everything and aim to reply within 48 hours.</p>
+
+      <!--
+        OWNER ACTION REQUIRED:
+        1. Go to https://formspree.io and create a free account
+        2. Create a new form — it gives you an endpoint like: https://formspree.io/f/xabcdefg
+        3. Replace YOUR_FORMSPREE_ID below with your actual form ID (just the ID part after /f/)
+      -->
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        method="POST"
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="What's on your mind?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="align-self: flex-start;">Send message</button>
+        <p class="contact-note">We don't share your details with third parties.</p>
+      </form>
+    </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

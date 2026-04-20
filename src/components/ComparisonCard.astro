@@ -1,0 +1,17 @@
+---
+interface Props {
+  category: string;
+  title: string;
+  description: string;
+  verdict: string;
+  slug: string;
+}
+const { category, title, description, verdict, slug } = Astro.props;
+---
+<div class="comp-card">
+  <span class="comp-tag">{category}</span>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <div class="comp-verdict"><Fragment set:html={verdict} /></div>
+  <a href={`/articles/${slug}/`} class="comp-read">Read comparison →</a>
+</div>

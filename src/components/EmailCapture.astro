@@ -1,0 +1,69 @@
+---
+---
+<section class="email-section">
+  <div class="email-inner">
+    <div class="email-left">
+      <span class="email-tag">Free download</span>
+      <h2>Get the free sleep checklist</h2>
+      <p>A one-page reference covering every protocol, tracker setting, and supplement dose covered on this site. Save it to your phone.</p>
+    </div>
+    <div class="email-right">
+      <div class="email-perks">
+        <span class="email-perk">Free download</span>
+        <span class="email-perk">No spam ever</span>
+        <span class="email-perk">Unsubscribe anytime</span>
+      </div>
+      <form class="email-form" id="homepage-email-form">
+        <input type="email" placeholder="Your email address" required id="homepage-email-input" />
+        <button type="submit" class="email-submit" id="homepage-email-btn">Get it free</button>
+      </form>
+      <div id="homepage-email-success" class="email-success">You're in ✓</div>
+      <div id="homepage-email-error" class="email-error">Something went wrong — please try again.</div>
+      <p class="email-note" style="margin-top: 10px;">Join 2,000+ people optimising their sleep and recovery.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form    = document.getElementById('homepage-email-form') as HTMLFormElement;
+  const input   = document.getElementById('homepage-email-input') as HTMLInputElement;
+  const btn     = document.getElementById('homepage-email-btn') as HTMLButtonElement;
+  const success = document.getElementById('homepage-email-success') as HTMLElement;
+  const error   = document.getElementById('homepage-email-error') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const emailValue = input.value.trim();
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(
+        `https://api.airtable.com/v0/${import.meta.env.AIRTABLE_BASE_ID}/${import.meta.env.AIRTABLE_TABLE_NAME}`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${import.meta.env.AIRTABLE_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fields: {
+              Email: emailValue,
+              Date: new Date().toISOString().split('T')[0],
+              Source: 'Homepage',
+            },
+          }),
+        }
+      );
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      error.style.display = 'block';
+      btn.textContent = 'Get it free';
+      btn.disabled = false;
+    }
+  });
+</script>

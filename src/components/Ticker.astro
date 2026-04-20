@@ -1,0 +1,13 @@
+---
+const products = [
+  'Oura Ring', 'Whoop 4.0', 'Eight Sleep', 'Joovv', 'Magnesium Glycinate',
+  'Cold Plunge', 'AG1', 'Thorne', 'Mito Red Light', 'Garmin Venu',
+  'Momentous', 'Sunlighten',
+];
+---
+<div class="ticker-strip">
+  <div class="ticker-track">
+    {products.map(p => <span class="ticker-item">{p}</span>)}
+    {products.map(p => <span class="ticker-item" aria-hidden="true">{p}</span>)}
+  </div>
+</div>

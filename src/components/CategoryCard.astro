@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pipColor: string;
+  links: { label: string; slug: string }[];
+  allHref: string;
+  allLabel: string;
+}
+const { title, description, pipColor, links, allHref, allLabel } = Astro.props;
+---
+<div class="cat-card">
+  <div class="cat-pip" style={`background: ${pipColor};`}></div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <ul class="cat-links">
+    {links.map(l => (
+      <li><a href={`/articles/${l.slug}/`}>{l.label}</a></li>
+    ))}
+  </ul>
+  <a href={allHref} class="cat-all">{allLabel} →</a>
+</div>

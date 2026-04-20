@@ -1,0 +1,183 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import FAQ from '../components/FAQ.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  updated: Date;
+  category: string;
+  slug: string;
+  image?: string;
+  readingTime: number;
+  comparisonTable?: { headers: string[]; rows: string[][] };
+  faq?: { q: string; a: string }[];
+}
+
+const {
+  title,
+  description,
+  date,
+  updated,
+  category,
+  slug,
+  image,
+  readingTime,
+  comparisonTable,
+  faq,
+} = Astro.props;
+
+const canonicalUrl = `https://stackandsleep.com/articles/${slug}`;
+const ogImage = image ? `https://stackandsleep.com${image}` : 'https://stackandsleep.com/og-default.jpg';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: date.toISOString(),
+  dateModified: updated.toISOString(),
+  author: { '@type': 'Organization', name: 'Stack and Sleep', url: 'https://stackandsleep.com' },
+  publisher: { '@type': 'Organization', name: 'Stack and Sleep', url: 'https://stackandsleep.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  ...(image ? { image: ogImage } : {}),
+};
+
+const jsonLd = JSON.stringify(schema);
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Stack and Sleep</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <meta property="og:title"       content={`${title} | Stack and Sleep`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image"       content={ogImage} />
+  <meta property="og:url"         content={canonicalUrl} />
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Stack and Sleep" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={`${title} | Stack and Sleep`} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImage} />
+
+  <script type="application/ld+json" set:html={jsonLd} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="stylesheet" href="/src/styles/nav.css" />
+  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <link rel="stylesheet" href="/src/styles/cards.css" />
+  <link rel="stylesheet" href="/src/styles/email.css" />
+  <link rel="stylesheet" href="/src/styles/article.css" />
+</head>
+<body class="article-page">
+
+  <div class="disclosure-bar">
+    Independent reviews — affiliate links at no extra cost to you.&nbsp;
+    <a href="/affiliate-disclosure/">Full disclosure</a>&nbsp;·&nbsp;
+    <a href="/how-we-review/">How we review</a>
+  </div>
+
+  <Nav />
+
+  <main>
+    <header class="article-header">
+      <div class="article-header-cat">{category}</div>
+      <h1>{title}</h1>
+      <div class="article-header-meta">
+        <span>Published {formatDate(date)}</span>
+        <span>Updated {formatDate(updated)}</span>
+        <span>{readingTime} min read</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <slot />
+
+      {comparisonTable && (
+        <ComparisonTable headers={comparisonTable.headers} rows={comparisonTable.rows} />
+      )}
+    </div>
+
+    {faq && faq.length > 0 && (
+      <div class="article-body" style="padding-top: 0;">
+        <FAQ items={faq} />
+      </div>
+    )}
+
+    <!-- Inline email capture CTA -->
+    <div class="article-email-cta">
+      <div class="article-email-box">
+        <h3>Get the free sleep optimisation checklist</h3>
+        <p>Everything covered in this guide, condensed onto one page. Free download.</p>
+        <form class="article-email-form" id="article-email-form">
+          <input type="email" placeholder="Your email address" required id="article-email-input" />
+          <button type="submit" class="btn-primary">Get it free</button>
+        </form>
+        <div id="article-email-success" class="email-success">You're in ✓ — check your inbox.</div>
+        <div id="article-email-error" class="email-error">Something went wrong — please try again.</div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+</body>
+</html>
+
+<script>
+  const form = document.getElementById('article-email-form') as HTMLFormElement;
+  const input = document.getElementById('article-email-input') as HTMLInputElement;
+  const successEl = document.getElementById('article-email-success') as HTMLElement;
+  const errorEl   = document.getElementById('article-email-error') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const emailValue = input.value.trim();
+    const btn = form.querySelector('button') as HTMLButtonElement;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(
+        `https://api.airtable.com/v0/${import.meta.env.AIRTABLE_BASE_ID}/${import.meta.env.AIRTABLE_TABLE_NAME}`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${import.meta.env.AIRTABLE_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fields: {
+              Email: emailValue,
+              Date: new Date().toISOString().split('T')[0],
+              Source: `Article — ${window.location.pathname}`,
+            },
+          }),
+        }
+      );
+      if (res.ok) {
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      errorEl.style.display = 'block';
+      btn.textContent = 'Get it free';
+      btn.disabled = false;
+    }
+  });
+</script>

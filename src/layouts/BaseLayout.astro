@@ -1,0 +1,105 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  slug?: string;
+  type?: 'website' | 'article';
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  image = '/og-default.jpg',
+  slug = '',
+  type = 'website',
+  schema,
+} = Astro.props;
+
+const canonicalUrl = `https://stackandsleep.com/${slug}`;
+const ogImage = image.startsWith('http') ? image : `https://stackandsleep.com${image}`;
+
+const defaultSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://stackandsleep.com/#website',
+      url: 'https://stackandsleep.com',
+      name: 'Stack and Sleep',
+      description: 'Independent reviews and buying guides for sleep optimisation and biohacking.',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://stackandsleep.com/#organization',
+      name: 'Stack and Sleep',
+      url: 'https://stackandsleep.com',
+    },
+  ],
+};
+
+const jsonLd = JSON.stringify(schema ?? defaultSchema);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Stack and Sleep</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content={`${title} | Stack and Sleep`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image"       content={ogImage} />
+  <meta property="og:url"         content={canonicalUrl} />
+  <meta property="og:type"        content={type} />
+  <meta property="og:site_name"   content="Stack and Sleep" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={`${title} | Stack and Sleep`} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImage} />
+
+  <!-- Schema -->
+  <script type="application/ld+json" set:html={jsonLd} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="stylesheet" href="/src/styles/nav.css" />
+  <link rel="stylesheet" href="/src/styles/hero.css" />
+  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <link rel="stylesheet" href="/src/styles/cards.css" />
+  <link rel="stylesheet" href="/src/styles/email.css" />
+  <link rel="stylesheet" href="/src/styles/article.css" />
+</head>
+<body>
+
+  <!-- FTC Disclosure -->
+  <div class="disclosure-bar">
+    Independent reviews — affiliate links at no extra cost to you.&nbsp;
+    <a href="/affiliate-disclosure/">Full disclosure</a>&nbsp;·&nbsp;
+    <a href="/how-we-review/">How we review</a>
+  </div>
+
+  <!-- Nav -->
+  <slot name="nav" />
+
+  <!-- Page content -->
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <slot name="footer" />
+
+</body>
+</html>
