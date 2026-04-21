@@ -96,11 +96,11 @@ import Footer from '../components/Footer.astro';
 
     try {
       const res = await fetch(
-        `https://api.airtable.com/v0/${import.meta.env.AIRTABLE_BASE_ID}/Contact`,
+        `https://api.airtable.com/v0/${import.meta.env.PUBLIC_AIRTABLE_BASE_ID}/Contact`,
         {
           method: 'POST',
           headers: {
-            Authorization: `Bearer ${import.meta.env.AIRTABLE_API_KEY}`,
+            Authorization: `Bearer ${import.meta.env.PUBLIC_AIRTABLE_API_KEY}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
