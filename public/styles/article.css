@@ -114,3 +114,49 @@
 @media (max-width: 600px) {
   .article-header h1 { font-size: 26px; }
 }
+
+a.affiliate-btn {
+  display: inline-block;
+  background: #e8622a;
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 11px 24px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  letter-spacing: 0.02em;
+  margin: 12px 0 20px;
+  transition: background 0.2s;
+}
+a.affiliate-btn:hover {
+  background: #c4521f;
+}
+
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 13px;
+}
+.article-body th {
+  background: #f7f7f5;
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid #eeecea;
+  color: #111;
+}
+.article-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eeecea;
+  color: #444;
+  vertical-align: middle;
+}
+.article-body td a {
+  color: #e8622a;
+  font-weight: 600;
+  text-decoration: none;
+}
+.article-body td a:hover {
+  text-decoration: underline;
+}

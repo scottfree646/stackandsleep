@@ -32,9 +32,17 @@ Six sleep trackers. Here is what the published research and real-world community
 
 We don't personally test the devices on this site. What we do is read the independent accuracy studies, follow the user communities where thousands of people report real experience over months and years, and give you a clear verdict based on the weight of evidence — not a 10-day loan period from a brand.
 
+## Quick comparison
+
+| Tracker | Price | Best for | Rating | Buy |
+|---|---|---|---|---|
+| Oura Ring Gen 4 | $349 | Sleep data accuracy | ⭐ 4.0 (7,145) | [Amazon →](https://www.amazon.com/dp/B0D9WVSZ56?tag=standandsleep-20) |
+| Garmin Venu 3 | $385 | Athletes + GPS | ⭐ 4.5 (5,996) | [Amazon →](https://www.amazon.com/dp/B0CDC6LH5W?tag=standandsleep-20) |
+| Fitbit Charge 6 | $189 | Budget + heart rate | ⭐ 4.7 (95) | [Amazon →](https://www.amazon.com/dp/B0FM9BKKPP?tag=standandsleep-20) |
+
 ## The two worth buying
 
-**Oura Ring Gen 4 — best for most people**
+**[Oura Ring Gen 4](https://www.amazon.com/dp/B0D9WVSZ56?tag=standandsleep-20) — best for most people**
 
 The Oura Ring is the benchmark for passive sleep tracking. You wear it overnight, and the app produces a detailed breakdown of sleep stages, HRV, respiratory rate, and body temperature deviation.
 
@@ -43,6 +51,8 @@ Independent accuracy research is the strongest argument for Oura. Published stud
 Battery life is 8 days per published specs. The ring form factor means no wrist discomfort during sleep — a consistent theme in long-term user reports. Gen 4 improved peripheral sensing accuracy over Gen 3 per Oura's published changelog and user-reported score consistency.
 
 Price: $349 one-time. Oura Plus subscription ($5.99/month) is optional — core data requires no subscription.
+
+<a href="https://www.amazon.com/dp/B0D9WVSZ56?tag=standandsleep-20" target="_blank" rel="nofollow noopener sponsored" class="affiliate-btn">Check price on Amazon → Oura Ring Gen 4 →</a>
 
 **Whoop 4.0 — best for people who train hard**
 
@@ -54,11 +64,15 @@ The subscription model ($239/year, hardware included) is the trade-off. Based on
 
 ## The ones worth skipping
 
-**Garmin Venu 3 ($449)** — Excellent GPS and training load tracking. Sleep accuracy is solid based on independent assessments. But at $449, it's overpriced relative to Oura for purely sleep-focused buyers. Buy it if you run or cycle and want GPS in the same device.
+**[Garmin Venu 3](https://www.amazon.com/dp/B0CDC6LH5W?tag=standandsleep-20) ($449)** — Excellent GPS and training load tracking. Sleep accuracy is solid based on independent assessments. But at $449, it's overpriced relative to Oura for purely sleep-focused buyers. Buy it if you run or cycle and want GPS in the same device.
+
+<a href="https://www.amazon.com/dp/B0CDC6LH5W?tag=standandsleep-20" target="_blank" rel="nofollow noopener sponsored" class="affiliate-btn">Check price on Amazon → Garmin Venu 3 →</a>
 
 **RingConn Gen 2 ($279)** — The strongest budget alternative to Oura. HRV tracking is well-regarded in community reviews. Sleep staging is more basic than Oura Gen 4. Worth considering if $349 is the constraint.
 
-**Fitbit Charge 6 ($159)** — Google's integration has improved the platform. Sleep staging is acceptable at this price point. The long-term product roadmap is uncertain since the Google acquisition, which is a legitimate consideration for a device you'll wear daily.
+**[Fitbit Charge 6](https://www.amazon.com/dp/B0FM9BKKPP?tag=standandsleep-20) ($159)** — Google's integration has improved the platform. Sleep staging is acceptable at this price point. The long-term product roadmap is uncertain since the Google acquisition, which is a legitimate consideration for a device you'll wear daily.
+
+<a href="https://www.amazon.com/dp/B0FM9BKKPP?tag=standandsleep-20" target="_blank" rel="nofollow noopener sponsored" class="affiliate-btn">Check price on Amazon → Fitbit Charge 6 →</a>
 
 **Apple Watch Series 9 ($399)** — The weakest sleep tracker in this comparison by a significant margin. The 18-hour battery means choosing between overnight tracking and daytime use. Published comparisons and consistent user reports confirm sleep data quality is below every dedicated tracker here.
 

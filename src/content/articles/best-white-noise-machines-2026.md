@@ -28,6 +28,13 @@ faq:
 
 A white noise machine is one of the cheapest, most evidence-backed sleep upgrades available. A $49 device can reduce sleep fragmentation more reliably than many supplements costing ten times more. Here's what the research and user data say about the best options.
 
+## Quick comparison
+
+| Machine | Price | Best for | Rating | Buy |
+|---|---|---|---|---|
+| LectroFan Classic | $54.95 | Pure white noise variety | ⭐ 4.6 (2,297) | [Amazon →](https://www.amazon.com/dp/B019GAFJEG?tag=standandsleep-20) |
+| Yogasleep Dohm Classic | $60 | Natural fan sound | ⭐ 4.6 (252) | [Amazon →](https://www.amazon.com/dp/B08DXJL5YW?tag=standandsleep-20) |
+
 ## Why white noise works
 
 Sound-induced microarousals are among the most common causes of poor sleep quality in urban environments. You may not consciously remember waking — but a sleep tracker will show the fragmentation in your sleep staging data. Published research confirms that white noise reduces these microarousals by providing a consistent acoustic baseline that masks the intermittent spikes that trigger arousal.
@@ -36,7 +43,7 @@ It doesn't make you sleep more deeply. It reduces how often you're pulled out of
 
 ## The best options, ranked
 
-### LectroFan Classic — best overall ($49)
+### [LectroFan Classic](https://www.amazon.com/dp/B019GAFJEG?tag=standandsleep-20) — best overall ($49)
 
 The LectroFan Classic has the strongest combination of price, volume ceiling, and long-term reliability across all major review aggregators and user communities. It produces 10 fan sounds and 10 white/pink/brown noise variations via a digital sound engine — no mechanical fan, no moving parts, no wearing out over time.
 
@@ -46,13 +53,17 @@ No timer, no app, no alarm. It does one thing and does it well.
 
 **Best for:** Most people. Start here.
 
-### Yogasleep Dohm Classic — best natural sound ($45)
+<a href="https://www.amazon.com/dp/B019GAFJEG?tag=standandsleep-20" target="_blank" rel="nofollow noopener sponsored" class="affiliate-btn">Check price on Amazon → LectroFan Classic →</a>
+
+### [Yogasleep Dohm Classic](https://www.amazon.com/dp/B08DXJL5YW?tag=standandsleep-20) — best natural sound ($45)
 
 The Dohm uses an actual mechanical fan inside a plastic housing, producing genuine airflow sound rather than a digital reproduction. Users who find electronic white noise artificial or tonally grating consistently prefer the Dohm's character.
 
 The trade-off: a single sound type, moderate volume ceiling (lower than LectroFan), and mechanical components that will eventually wear — typically 3–5 years of nightly use based on long-term owner reports.
 
 **Best for:** People who find digital white noise unnatural-sounding.
+
+<a href="https://www.amazon.com/dp/B08DXJL5YW?tag=standandsleep-20" target="_blank" rel="nofollow noopener sponsored" class="affiliate-btn">Check price on Amazon → Yogasleep Dohm →</a>
 
 ### Hatch Restore 2 — best for a full sleep routine system ($169)
 

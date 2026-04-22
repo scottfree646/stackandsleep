@@ -82,6 +82,21 @@ const formatDate = (d: Date) =>
   <link rel="stylesheet" href="/styles/cards.css" />
   <link rel="stylesheet" href="/styles/email.css" />
   <link rel="stylesheet" href="/styles/article.css" />
+  <style>
+    .affiliate-disclosure {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      font-size: 12px;
+      color: #aaa;
+      background: #f7f7f5;
+      border-left: 3px solid #e8622a;
+      padding: 8px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body class="article-page">
 
@@ -103,6 +118,10 @@ const formatDate = (d: Date) =>
         <span>{readingTime} min read</span>
       </div>
     </header>
+
+    <p class="affiliate-disclosure">
+      This article contains affiliate links. If you purchase through our links we may earn a commission at no extra cost to you.
+    </p>
 
     <div class="article-body">
       <slot />

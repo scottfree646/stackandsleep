@@ -19,9 +19,19 @@ faq:
     a: "No. All core data — sleep stages, HRV, readiness score, temperature deviation — are accessible without a subscription. Oura Plus ($5.99/month) adds AI-generated insights and guided content. Community consensus on r/ouraring is that the subscription is optional for most users."
 ---
 
-The Oura Ring Gen 4 is the most independently validated consumer sleep tracker available. This review is built on published accuracy research and real-world user data from the r/ouraring community — not a loan unit from Oura's PR team.
+The [Oura Ring Gen 4](https://www.amazon.com/dp/B0D9WVSZ56?tag=standandsleep-20) is the most independently validated consumer sleep tracker available. This review is built on published accuracy research and real-world user data from the r/ouraring community — not a loan unit from Oura's PR team.
 
 Here's what the evidence actually shows.
+
+| Spec | Detail |
+|---|---|
+| Price | $349 one-time |
+| Subscription | Optional ($5.99/mo for Oura Plus) |
+| Battery | Up to 8 days |
+| Rating | ⭐ 4.0 — 7,145 reviews |
+| Buy | [Amazon →](https://www.amazon.com/dp/B0D9WVSZ56?tag=standandsleep-20) |
+
+<a href="https://www.amazon.com/dp/B0D9WVSZ56?tag=standandsleep-20" target="_blank" rel="nofollow noopener sponsored" class="affiliate-btn">Check price on Amazon → Oura Ring Gen 4 →</a>
 
 ## What it measures
 
@@ -87,3 +97,5 @@ Consider alternatives if:
 The published research and years of real-world community data converge on the same conclusion: the Oura Ring Gen 4 is the most reliable passive sleep tracker available at this price point. Its accuracy data is the most independently validated, its form factor produces the lowest overnight discomfort, and the readiness score — once properly calibrated — is a meaningful daily signal.
 
 The caveats are real: it takes 2–3 weeks to become useful, daytime activity tracking is mediocre, and the $349 upfront cost isn't trivial. For most people who prioritise sleep data over fitness tracking, those trade-offs are worth making.
+
+<a href="https://www.amazon.com/dp/B0D9WVSZ56?tag=standandsleep-20" target="_blank" rel="nofollow noopener sponsored" class="affiliate-btn">Check price on Amazon → Oura Ring Gen 4 →</a>
